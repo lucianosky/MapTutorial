@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct GoogleMapsView: View {
+    @ObservedObject var viewModel: PlaceViewModel
+
     var body: some View {
-        NavigationStack {
-            VStack {
-                Text("Google Maps will be here.")
-                    .font(.title)
-                    .foregroundColor(.black)
+        VStack {
+            Text("Google Maps view")
+                .font(.title)
+            Spacer()
+            ForEach(viewModel.places, id: \.name) { place in
+                Text(place.name)
             }
-            .background(Color.white)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Google Maps").font(.headline)
-                }
-            }
+            Spacer()
         }
     }
 }

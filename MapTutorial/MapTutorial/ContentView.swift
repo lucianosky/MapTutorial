@@ -8,19 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        TabView {
-            AppleMapsView()
-                .tabItem {
-                    Image(systemName: "apple.logo")
-                    Text("Apple")
-                }
+    @StateObject private var viewModel = PlaceViewModel()
 
-            GoogleMapsView()
-                .tabItem {
-                    Image("google-maps")
-                    Text("Google")
+    var body: some View {
+        NavigationStack {
+            TabView {
+                AppleMapsView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "apple.logo")
+                        Text("Apple")
+                    }
+                
+                GoogleMapsView(viewModel: viewModel)
+                    .tabItem {
+                        Image("google-maps")
+                        Text("Google")
+                    }
+            }
+            .background(Color.white)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Porto Alegre").font(.headline)
                 }
+            }
         }
     }
 }
