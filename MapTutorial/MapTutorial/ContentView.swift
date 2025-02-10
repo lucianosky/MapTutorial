@@ -9,16 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+        TabView {
+            AppleMapsView()
+                .tabItem {
+                    Image(systemName: "apple.logo")
+                    Text("Apple")
+                }
 
-#Preview {
-    ContentView()
+            GoogleMapsView()
+                .tabItem {
+                    Image("google-maps")
+                    Text("Google")
+                }
+        }
+    }
 }
