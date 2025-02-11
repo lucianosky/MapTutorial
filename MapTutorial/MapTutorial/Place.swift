@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import MapKit
 
 struct Place {
     let latitude: Double
     let longitude: Double
     let name: String
+    
+//    var appleCoordinate: CLLocationCoordinate2D {
+//        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//    }
 }

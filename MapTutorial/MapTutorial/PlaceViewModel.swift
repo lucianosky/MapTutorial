@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 class PlaceViewModel: ObservableObject {
     @Published var places: [Place] = [
@@ -13,5 +14,11 @@ class PlaceViewModel: ObservableObject {
         Place(latitude: -29.97383, longitude: -51.19493, name: "Arena do Grêmio"),
         Place(latitude: -30.02697, longitude: -51.22795, name: "Mercado Público"),
     ]
-    @Published var mapCenter = Place(latitude: -30.03297, longitude: -51.20248, name: "")
+
+    @Published var mapCenter: Place
+    
+    init() {
+        mapCenter = Place(latitude: -30.03297, longitude: -51.20248, name: "")
+    }
 }
+ 
